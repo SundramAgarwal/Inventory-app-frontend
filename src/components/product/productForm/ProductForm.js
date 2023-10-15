@@ -5,7 +5,7 @@ import Card from "../../card/Card";
 
 import "./ProductForm.scss";
 
-const ProductForm = ({ 
+const ProductForm = ({
   product,
   productImage,
   imagePreview,
@@ -48,13 +48,54 @@ const ProductForm = ({
           />
 
           <label>Product Category:</label>
-          <input
-            type="text"
-            placeholder="Product Category"
+          <select
             name="category"
             value={product?.category}
             onChange={handleInputChange}
-          />
+            required
+          >
+            <option value="">Select a Category</option>
+            <option value="Televisions and Home Entertainment">
+              Televisions and Home Entertainment
+            </option>
+            <option value="Computers and Laptops">Computers and Laptops</option>
+            <option value="Smartphones and Accessories">
+              Smartphones and Accessories
+            </option>
+            <option value="Kitchen Appliances">Kitchen Appliances</option>
+            <option value="Laundry Appliances">Laundry Appliances</option>
+            <option value="Small Kitchen Gadgets">Small Kitchen Gadgets</option>
+            <option value="Home Climate Control">Home Climate Control</option>
+            <option value="Personal Care Electronics">
+              Personal Care Electronics
+            </option>
+            <option value="Vacuums and Floor Care">
+              Vacuums and Floor Care
+            </option>
+            <option value="Audio and Headphones">Audio and Headphones</option>
+            <option value="Cameras and Photography">
+              Cameras and Photography
+            </option>
+            <option value="Home Security and Surveillance">
+              Home Security and Surveillance
+            </option>
+            <option value="Gaming Consoles and Accessories">
+              Gaming Consoles and Accessories
+            </option>
+            <option value="Smart Home Devices">Smart Home Devices</option>
+            <option value="Office Electronics">Office Electronics</option>
+            <option value="Power and Charging Accessories">
+              Power and Charging Accessories
+            </option>
+            <option value="Cables and Connectors">Cables and Connectors</option>
+            <option value="Batteries and Chargers">
+              Batteries and Chargers
+            </option>
+            <option value="Smartwatches and Wearables">
+              Smartwatches and Wearables
+            </option>
+            <option value="Home Office Furniture">Home Office Furniture</option>
+          </select>
 
           <label>Product Price:</label>
           <input

@@ -34,11 +34,11 @@ const ProductDetail = () => {
     if (isError) {
       console.log(message);
     }
-  }, [isLoggedIn, isError, message, dispatch,id]);
+  }, [isLoggedIn, isError, message, dispatch, id]);
 
   return (
     <div className="product-detail">
-      <h3 className="--mt">Product Detail</h3>
+      <h3 className="--mt text-dark">Product Detail</h3>
       <Card cardClass="card">
         {isLoading && <SpinnerImg />}
         {product && (
@@ -48,6 +48,8 @@ const ProductDetail = () => {
                 <img
                   src={product.image.filePath}
                   alt={product.image.fileName}
+                  width="400"
+                  height={(3 / 4) * 400} // Calculated height for 4:3 aspect ratio
                 />
               ) : (
                 <p>No image set for this product</p>
@@ -65,22 +67,22 @@ const ProductDetail = () => {
               <b>&rarr; Category : </b> {product.category}
             </p>
             <p>
-              <b>&rarr; Price : </b> {"$"}
+              <b>&rarr; Price : </b> {"₹"}
               {product.price}
             </p>
             <p>
               <b>&rarr; Quantity in stock : </b> {product.quantity}
             </p>
             <p>
-              <b>&rarr; Total Value in stock : </b> {"$"}
+              <b>&rarr; Total Value in stock : </b> {"₹"}
               {product.price * product.quantity}
             </p>
             <hr />
             <div
-            // The code you provided is using the dangerouslySetInnerHTML prop in 
-            // React to set HTML content to be rendered on the page. It's using the 
-            // DOMPurify library to sanitize the HTML and remove any potentially harmful
-            //  content such as scripts or iframes.
+              // The code you provided is using the dangerouslySetInnerHTML prop in
+              // React to set HTML content to be rendered on the page. It's using the
+              // DOMPurify library to sanitize the HTML and remove any potentially harmful
+              //  content such as scripts or iframes.
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(product.description),
               }}

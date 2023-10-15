@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
   const name = useSelector(selectName);
 
-  const logout = async () => { 
+  const logout = async () => {
     await logoutUser();
     await dispatch(SET_LOGIN(false));
     navigate("/login");
@@ -19,7 +19,7 @@ const Header = () => {
     <div className="--pad header">
       <div className="--flex-between">
         <h3>
-          <span className="--fw-thin">Welcome, </span>
+          <span className="--fw-thin text-dark">Welcome, </span>
           <span className="--color-danger">{name}</span>
         </h3>
         <button onClick={logout} className="--btn --btn-danger">
