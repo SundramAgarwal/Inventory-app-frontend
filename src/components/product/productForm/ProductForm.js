@@ -38,16 +38,34 @@ const ProductForm = ({
               <p>No image set for this product.</p>
             )}
           </Card>
-          <label>Product Name:</label>
+          <label style={{ display: "block", marginBottom: "8px" }}>
+            Product Name :
+            <span
+              style={{
+                color: "red",
+                marginLeft: "4px",
+                fontSize: "20px",
+              }}
+            >
+              *
+            </span>
+          </label>
           <input
             type="text"
             placeholder="Product name"
             name="name"
             value={product?.name}
             onChange={handleInputChange}
+            required
           />
 
-          <label>Product Category:</label>
+          <label style={{ display: "block", marginBottom: "8px" }}>
+            Product Category :
+            <span style={{ color: "red", marginLeft: "4px", fontSize: "20px" }}>
+              *
+            </span>
+          </label>
+
           <select
             name="category"
             value={product?.category}
@@ -97,32 +115,55 @@ const ProductForm = ({
             <option value="Home Office Furniture">Home Office Furniture</option>
           </select>
 
-          <label>Product Price:</label>
+          <label style={{ display: "block", marginBottom: "8px" }}>
+            Product Price :
+            <span style={{ color: "red", marginLeft: "4px", fontSize: "20px" }}>
+              *
+            </span>
+          </label>
           <input
             type="text"
             placeholder="Product Price"
             name="price"
             value={product?.price}
             onChange={handleInputChange}
+            required
           />
 
-          <label>Product Quantity:</label>
+          <label style={{ display: "block", marginBottom: "8px" }}>
+            Product Quantity :
+            <span style={{ color: "red", marginLeft: "4px", fontSize: "20px" }}>
+              *
+            </span>
+          </label>
           <input
             type="text"
             placeholder="Product Quantity"
             name="quantity"
             value={product?.quantity}
             onChange={handleInputChange}
+            required
           />
 
-          <label>Product Description:</label>
+          <label style={{ display: "block", marginBottom: "8px" }}>
+            Product Description :
+            <span style={{ color: "red", marginLeft: "4px", fontSize: "20px" }}>
+              *
+            </span>
+          </label>
           <ReactQuill
             theme="snow"
             value={description}
             onChange={setDescription}
             modules={ProductForm.modules}
             formats={ProductForm.formats}
+            required
           />
+          {description.trim() === "" && (
+            <p className="--required-message">
+              Please enter the product description.
+            </p>
+          )}
 
           <div className="--my">
             <button type="submit" className="--btn --btn-primary">
